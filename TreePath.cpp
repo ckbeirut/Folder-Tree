@@ -31,7 +31,6 @@ void findFiles(std::string& fspath) {
   std::string destpath = fspath + std::string("\\*.*");
 
   std::cout << "destpath " << destpath << std::endl;
-  std::cout << "destpath length " << destpath.length() << std::endl;
 
   HANDLE hFind = FindFirstFile(destpath.c_str(), & FindFileData);
 
@@ -44,7 +43,6 @@ void findFiles(std::string& fspath) {
       if (FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
         findFiles(fullpath);
       else {
-//      std::cout<<i++<<"-"<<fullpath<<std::endl; 
         std::cout << "\t\t" << (FindFileData.cFileName) << std::endl;
 
       }
